@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELITE DEALS</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth;}
+body {background: linear-gradient(-45deg,#4a00e0,#8e2de2,#3fe0c5,#00ffb0); background-size:400% 400%; animation:gradientBG 15s ease infinite; color:white; transition:0.4s;}
+a{text-decoration:none;}
+button{cursor:pointer;}
+@keyframes gradientBG {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%;}}
+@keyframes spinQR{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+@keyframes pulseIcon{0%{transform:scale(1);}50%{transform:scale(1.12);}100%{transform:scale(1);}}
+@keyframes fadeSlide{0%{opacity:0; transform:translateY(-20px);}100%{opacity:1; transform:translateY(0);}}
+
+#loadingScreen{position:fixed;top:0;left:0;width:100%;height:100%;background:#0f0f17;display:flex;align-items:center;justify-content:center;z-index:9999; color:white; font-size:28px; font-weight:700;}
+#content{display:none;}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;backdrop-filter:blur(10px);background:rgba(0,0,0,0.2);border-radius:15px; margin:10px; animation:fadeSlide 1s ease;}
+header h1{font-size:24px;}
+header .slogan{font-size:14px;opacity:0.8;}
+header .datetime{font-size:14px;opacity:0.8;}
+
+:root{--bg:#0f0f17; --text:#fff; --cardBG:rgba(255,255,255,0.08);}
+.light-mode{--bg:#fff; --text:#111; --cardBG:rgba(0,0,0,0.05);}
+body{background:var(--bg); color:var(--text);}
+.card{background:var(--cardBG); padding:15px; border-radius:15px; margin:15px 0; backdrop-filter:blur(12px); transition:0.4s; box-shadow:0 4px 15px rgba(0,0,0,0.25);}
+.card:hover{transform:scale(1.03); box-shadow:0 6px 25px rgba(0,0,0,0.35);}
+
+.navBtn{padding:8px 18px; margin:5px; border:none; border-radius:25px; background:rgba(255,255,255,0.15); color:white; transition:0.3s;}
+.navBtn:hover{background:linear-gradient(45deg,#4a00e0,#8e2de2,#3fe0c5); transform:scale(1.05);}
+
+table{width:100%; border-collapse:collapse;}
+th,td{padding:12px; text-align:left;}
+th{background:rgba(255,255,255,0.12); border-radius:12px;}
+tr{border-bottom:1px solid rgba(255,255,255,0.1);}
+tr:last-child{border:none;}
+
+#qrBox{width:180px; margin:auto; padding:15px; border-radius:50%; overflow:hidden; animation:spinQR 6s linear infinite; background:linear-gradient(135deg,#4a00e0,#8e2de2,#3fe0c5);}
+#qrInner{width:150px; height:150px; background:rgba(0,0,0,0.35); border-radius:20px; padding:10px; display:flex; align-items:center; justify-content:center;}
+
+.instagramBtn{display:flex; align-items:center; justify-content:center; gap:12px; padding:16px 28px; background:linear-gradient(135deg,#4a00e0,#8e2de2,#3fe0c5); color:white; font-weight:700; border-radius:50px; border:1px solid rgba(255,255,255,0.2); box-shadow:0 0 20px rgba(0,0,0,0.25); transition:0.3s; margin:auto;}
+.instagramBtn:hover{transform:scale(1.05);}
+.instagramIcon{width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; animation:pulseIcon 2s infinite ease-in-out;}
+
+#quotes{width:90%; margin:20px auto; overflow:hidden; text-align:center; font-size:18px; font-weight:600;}
+.fadeIn{opacity:0; transform:translateY(20px); transition:all 0.8s ease;}
+.fadeIn.show{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div id="loadingScreen">ELITE DEALS</div>
+<div id="content">
+
+<header>
+<h1>ELITE DEALS</h1>
+<div class="slogan">TURN YOUR IDEAS INTO DEALS</div>
+<div class="datetime" id="datetime"></div>
+<button id="modeToggle">🌙 Dark</button>
+</header>
+
+<div style="text-align:center; margin:15px;">
+<button class="navBtn" onclick="showPage(1)">Services</button>
+<button class="navBtn" onclick="showPage(2)">Offers</button>
+<button class="navBtn" onclick="showPage(3)">Project Paths</button>
+</div>
+
+<div id="quotes">Providing ready-to-use project paths with a clear and guaranteed plan for fastest results.</div>
+
+<div id="page1" class="fadeIn">
+<h2 style="text-align:center; margin:15px;">OUR SERVICES</h2>
+<div class="card">
+<table>
+<tr><th>Service</th><th>Price</th></tr>
+<tr><td>Logo designs</td><td>$2</td></tr>
+<tr><td>Instagram followers</td><td>from $1.5</td></tr>
+<tr><td>TikTok followers</td><td>from $2</td></tr>
+<tr><td>ChatGPT access</td><td>from $5</td></tr>
+<tr><td>Netflix</td><td>from $6</td></tr>
+<tr><td>Canva Pro lifetime</td><td>$2</td></tr>
+<tr><td>…and more services</td><td>–</td></tr>
+</table>
+</div>
+</div>
+
+<div id="page2" class="fadeIn" style="display:none;">
+<h2 style="text-align:center; margin:15px;">OFFERS</h2>
+<div class="card">
+<p>We provide a ready-to-start path for a successful project, with a precise and tested plan ensuring the best launch without wasting time or effort.</p>
+<ul>
+<li>Always double-check your orders before requesting services.</li>
+<li>Follow instructions for each platform to get the best results.</li>
+<li>Stay safe: only share minimal personal info when ordering online.</li>
+</ul>
+</div>
+</div>
+
+<div id="page3" class="fadeIn" style="display:none;">
+<h2 style="text-align:center; margin:15px;">PROJECT PATHS</h2>
+<div class="card">
+<p style="text-align:center;">We sell ready-to-use project paths & small roadmaps for your projects ($5 each)</p>
+<div id="qrBox">
+<div id="qrInner">
+<div id="qrCode"></div>
+</div>
+</div>
+
+<a class="instagramBtn" href="https://www.instagram.com/anas__.elk?igsh=MjF3dWpsM2xlZHdh" target="_blank">
+<div class="instagramIcon">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" style="width:26px;height:26px;">
+</div>
+FOLLOW ME
+</a>
+
+</div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+window.addEventListener("load",()=>{document.getElementById("loadingScreen").style.display="none";document.getElementById("content").style.display="block";});
+
+function showPage(num){
+  for(let i=1;i<=3;i++){
+    let p=document.getElementById('page'+i);
+    if(i===num){p.style.display='block'; p.classList.add('show');}
+    else{p.style.display='none'; p.classList.remove('show');}
+  }
+  localStorage.setItem('lastPage',num);
+}
+let lastPage=localStorage.getItem('lastPage'); if(lastPage) showPage(Number(lastPage)); else showPage(1);
+
+const toggleBtn=document.getElementById("modeToggle"); const body=document.body;
+if(localStorage.getItem("mode")==="light"){body.classList.add("light-mode"); toggleBtn.textContent="☀️ Light";}
+toggleBtn.addEventListener("click",()=>{
+  body.classList.toggle("light-mode");
+  if(body.classList.contains("light-mode")){toggleBtn.textContent="☀️ Light"; localStorage.setItem("mode","light");}
+  else{toggleBtn.textContent="🌙 Dark"; localStorage.setItem("mode","dark");}
+});
+
+new QRCode(document.getElementById("qrCode"),{text:"https://www.instagram.com/anas__.elk?igsh=MjF3dWpsM2xlZHdh",width:150,height:150,colorDark:"#ffffff",colorLight:"rgba(0,0,0,0)",correctLevel:QRCode.CorrectLevel.H});
+
+const quotes=["Providing ready-to-use project paths with a clear and guaranteed plan for fastest results.","We deliver precise project strategies for fastest results.","Your idea + our roadmap = success."];
+let qIndex=0; setInterval(()=>{document.getElementById("quotes").textContent=quotes[qIndex]; qIndex=(qIndex+1)%quotes.length;},5000);
+
+// Fade-in on scroll
+const faders=document.querySelectorAll('.fadeIn'); 
+window.addEventListener('scroll',()=>{faders.forEach(f=>{const top=f.getBoundingClientRect().top; if(top<window.innerHeight-50){f.classList.add('show');}});});
+
+// Date & Time Live
+function updateDateTime(){
+  const dt=document.getElementById("datetime");
+  const now=new Date();
+  dt.textContent=now.toLocaleString();
+}
+setInterval(updateDateTime,1000);
+updateDateTime();
+</script>
+</body>
+</html>
